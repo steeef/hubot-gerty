@@ -1,13 +1,19 @@
-bot-cfg
-=======
+hubot-gerty
+===========
 
-Dockerfile for configuring [nhoag/hubot](https://registry.hub.docker.com/u/nhoag/hubot/).
+Dockerfile and associated docker-compose.yml for Slack demo of Hubot, named
+Gerty. Sets up Hubot to connect to Slack and interact with included containers
+for various services like Jenkins, Nagios, and Graphite.
 
-## Deployment Steps
+Create `hubot.env` to store your own Hubot environment variables in `KEY=value`
+format.
 
-1. `docker pull nhoag/hubot`
-2. `git clone git@github.com:nhoag/bot-cfg.git`
-3. `vi ./bot-cfg/Dockerfile` (configure `ENV`s)
-4. `docker build -t="nhoag/hubot:live" ./bot-cfg/`
-5. `docker run -d -p PORT nhoag/hubot:live`
-6. Add public Hubot address to Slack Integration (i.e. http://2.2.2.2:45678/)
+Uses [SkyDock with SkyDNS](https://github.com/crosbymichael/skydock) to
+register names of docker containers in a local domain name (".dev.docker.").
+This gets around current Docker bi-directional link limitations.
+
+# Acknowledgements
+
+Based on the repositories mentioned in [Nathaniel Hoag's blog
+post](http://nathanielhoag.com/blog/2014/12/07/a-dockerized-slack-integrated-hubot/)
+regarding how to set up Hubot with Docker.

@@ -10,7 +10,17 @@ format.
 
 Uses [SkyDock with SkyDNS](https://github.com/crosbymichael/skydock) to
 register names of docker containers in a local domain name (".dev.docker.").
-This gets around current Docker bi-directional link limitations.
+This gets around current Docker bi-directional link limitations. You must set
+the environment variable `SKYDNS_NAMESERVERS` to a comma-delimited list of 
+locally-accessible nameserver so that it may forward any requests it doesn't
+recognize (i.e., anything outside of the ".dev.docker." domain). On a Linux host,
+you could run it this way:
+```
+SKYDNS_NAMESERVERS=$(awk '/^nameserver/ {print $2}' /etc/resolv.conf \
+  | tr '\n' ',' \
+  | sed 's/,$/\n/') $2}') \
+  docker-compose up
+```
 
 # Acknowledgements
 

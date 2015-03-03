@@ -11,10 +11,10 @@ skydock:
   image: crosbymichael/skydock
   dns: 172.17.42.1
   links:
-    - skydns:skydns
+    - skydns
   volumes:
     - "/var/run/docker.sock:/docker.sock"
-  command: -ttl 30 -s /docker.sock -domain docker -environment dev -name skydns
+  command: -ttl 30 -s /docker.sock -domain docker -environment dev -name hubotgerty_skydns_1
 
 jenkins:
   image: jenkins

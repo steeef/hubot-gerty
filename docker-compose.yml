@@ -27,7 +27,7 @@ jenkins:
     - "~/docker/jenkins:/var/jenkins_home"
 
 rundeck:
-  impage: jordan/rundeck
+  image: jordan/rundeck
   dns: 172.17.42.1
   links:
     - skydock

@@ -26,6 +26,18 @@ jenkins:
   volumes:
     - "~/docker/jenkins:/var/jenkins_home"
 
+rundeck:
+  impage: jordan/rundeck
+  dns: 172.17.42.1
+  links:
+    - skydock
+  ports:
+    - "4440:4440"
+  volumes:
+    - "~/docker/rundeck/mysql:/var/lib/mysql"
+    - "~/docker/rundeck/etc:/etc/rundeck"
+    - "~/docker/rundeck/var:/var/rundeck"
+
 nagios:
   image: cpuguy83/nagios
   dns: 172.17.42.1

@@ -69,19 +69,18 @@ graphite:
     - "7002:7002"
 
 postgresql:
-  image: sameersbn/postgresql:9.4
+  image: postgres:9.4
   dns: 172.17.42.1
   links:
     - skydock
   environment:
-    - DB_USER=gitlab
-    - DB_PASS=secretpassword
-    - DB_NAME=gitlabhq_production
+    - POSTGRES_USER=gitlab
+    - POSTGRES_PASS=secretpassword
   volumes:
     - "~/docker/gl-postgresql:/var/lib/postgresql"
 
 redis:
-  image: sameersbn/redis:latest
+  image: redis:latest
   dns: 172.17.42.1
   links:
     - skydock
@@ -92,6 +91,9 @@ gitlab:
   environment:
     - GITLAB_PORT=10080
     - GITLAB_SSH_PORT=10022
+    - DB_USER=gitlab
+    - DB_PASS=secretpassword
+    - DB_NAME=gitlab
   links:
     - redis:redisio
     - postgresql:postgresql

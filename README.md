@@ -16,7 +16,7 @@ locally-accessible nameserver so that it may forward any requests it doesn't
 recognize (i.e., anything outside of the ".dev.docker." domain). On a Linux host,
 you could run it this way:
 ```
-SKYDNS_NAMESERVERS=$(awk '/^nameserver/ {print $2}' /etc/resolv.conf | tr '\n' ',' | sed 's/,$/\n/') $2}') \
+SKYDNS_NAMESERVERS=$(awk '/^nameserver/ {print $2}' /etc/resolv.conf | tr '\n' ',' | sed 's/,$/\n/') \
   docker-compose up
 ```
 

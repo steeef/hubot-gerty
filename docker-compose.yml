@@ -34,8 +34,6 @@ rundeck:
   ports:
     - "4440:4440"
   volumes:
-    - "~/docker/rundeck/mysql:/var/lib/mysql"
-    - "~/docker/rundeck/etc:/etc/rundeck"
     - "~/docker/rundeck/var:/var/rundeck"
 
 nagios:

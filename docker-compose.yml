@@ -34,6 +34,7 @@ rundeck:
   dns_search: dev.docker
   links:
     - skydock
+    - "hubot:hubot"
   ports:
     - "4440:4440"
   volumes:

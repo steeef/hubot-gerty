@@ -10,6 +10,7 @@ skydns:
 skydock:
   image: crosbymichael/skydock
   dns: 172.17.42.1
+  dns_search: dev.docker
   links:
     - skydns
   volumes:
@@ -19,6 +20,7 @@ skydock:
 jenkins:
   image: jenkins
   dns: 172.17.42.1
+  dns_search: dev.docker
   links:
     - skydock
   ports:
@@ -29,6 +31,7 @@ jenkins:
 rundeck:
   image: jordan/rundeck
   dns: 172.17.42.1
+  dns_search: dev.docker
   links:
     - skydock
   ports:
@@ -39,6 +42,7 @@ rundeck:
 nagios:
   image: cpuguy83/nagios
   dns: 172.17.42.1
+  dns_search: dev.docker
   links:
     - skydock
   ports:
@@ -49,6 +53,7 @@ hubot:
   links:
     - skydock
   dns: 172.17.42.1
+  dns_search: dev.docker
   ports:
     - "8001:8001"
   env_file:
@@ -59,6 +64,7 @@ hubot:
 graphite:
   image: jayofdoom/trusty-graphite-standalone
   dns: 172.17.42.1
+  dns_search: dev.docker
   links:
     - skydock
   ports:
@@ -71,6 +77,7 @@ graphite:
 postgresql:
   image: postgres:9.4
   dns: 172.17.42.1
+  dns_search: dev.docker
   links:
     - skydock
   environment:
@@ -82,12 +89,14 @@ postgresql:
 redis:
   image: redis:latest
   dns: 172.17.42.1
+  dns_search: dev.docker
   links:
     - skydock
 
 gitlab:
   image: sameersbn/gitlab:7.8.1
   dns: 172.17.42.1
+  dns_search: dev.docker
   environment:
     - GITLAB_PORT=10080
     - GITLAB_SSH_PORT=10022

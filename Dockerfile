@@ -7,9 +7,9 @@ ENV HUBOT_NAME gerty
 ENV HUBOT_PORT 8001
 ENV HUBOT_ADAPTER slack
 ENV FILE_BRAIN_PATH /data
-ENV GRAPHITE_SERVER trusty-graphite-standalone.dev.docker
-ENV HUBOT_JENKINS_URL http://jenkins.dev.docker:8080
-ENV HUBOT_RUNDECK_URL http://rundeck.dev.docker:4440
+ENV GRAPHITE_SERVER trusty-graphite-standalone
+ENV HUBOT_JENKINS_URL http://jenkins:8080
+ENV HUBOT_RUNDECK_URL http://rundeck:4440
 ENV PORT ${HUBOT_PORT}
 
 VOLUME /data
